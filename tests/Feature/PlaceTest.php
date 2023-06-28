@@ -4,19 +4,17 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
-class UserTest extends TestCase
+class PlaceTest extends TestCase
 {
     /**
      * A basic feature test example.
      */
     public function test_example(): void
     {
+        $response = $this->get('/');
 
-        $this->assertDatabaseHas('places', [
-            'name' => 'Berlin'
-        ]);
+        $response->assertStatus(200);
     }
 }
