@@ -25,9 +25,9 @@ jobs:
     - name: Run docker env
       run: docker-compose up -d
     - name: Generate key
-      run: docker-compose exec app php artisan key:generate
+      run: php artisan key:generate
     - name: Seed database
-      run: docker-compose exec app php artisan migrate --seed
+      run: php artisan migrate --seed
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
