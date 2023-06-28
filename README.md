@@ -23,12 +23,18 @@ docker-compose up -d
 
 * phpMyAdmin [http://localhost:8080](http://localhost:8080)
 
+* seed database
+```
+docker-compose exec app php artisan migrate --seed
+```
+
 * use docker composer for php artisan commands
 ```
 docker-compose exec app <your-command>
 ```
 
 ## Testing
+* run test
 ```
 docker-compose php artisan test
 ```
