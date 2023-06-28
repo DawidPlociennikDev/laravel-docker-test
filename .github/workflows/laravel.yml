@@ -26,8 +26,6 @@ jobs:
       run: docker-compose up -d
     - name: Generate key
       run: php artisan key:generate
-    - name: Seed database
-      run: php artisan migrate --seed
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
@@ -39,3 +37,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+    - name: Seed database
+      run: php artisan migrate --seed
