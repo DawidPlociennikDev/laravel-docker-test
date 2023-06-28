@@ -20,8 +20,14 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Build docker
+      run: docker-compose build app
+    - name: Run docker env
+      run: docker-compose up -d
     - name: Generate key
-      run: php artisan key:generate
+      run: docker-compose exec app php artisan key:generate
+    - name: Seed database
+      run: docker-compose exec app php artisan migrate --seed
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
     - name: Create Database
