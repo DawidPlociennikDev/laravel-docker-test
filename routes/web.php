@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/test', [WelcomeController::class, 'index']);
+Route::get('/sms', [SmsController::class, 'sms']);
+Route::post('/sms', [SmsController::class, 'sms']);

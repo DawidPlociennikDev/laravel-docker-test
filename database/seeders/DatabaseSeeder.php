@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PlaceSeeder::class,
+            SmsSeeder::class,
         ]);
     }
 }
